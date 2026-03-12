@@ -25,18 +25,28 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     const days = document.getElementById('days');
-    const hours = document.getElementById('hours');
-    const minutes = document.getElementById('minutes');
-    const seconds = document.getElementById('seconds');
+const hours = document.getElementById('hours');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+
+// Mobile countdown (IDs con -m)
+const daysM = document.getElementById('days-m');
+const hoursM = document.getElementById('hours-m');
+const minutesM = document.getElementById('minutes-m');
+const secondsM = document.getElementById('seconds-m');
 
     // Check if all elements are found
     const elementsExist = days && hours && minutes && seconds;
 
     // If any element is missing, log a warning and return
-    if (!elementsExist) {
-        console.warn('One or more countdown elements not found.');
-        return;
-    }
+    const desktopExists = days && hours && minutes && seconds;
+const mobileExists = daysM && hoursM && minutesM && secondsM;
+
+// Si no existe ninguno de los dos contadores, salimos
+if (!desktopExists && !mobileExists) {
+  console.warn('Countdown elements not found (desktop or mobile).');
+  return;
+}
 
     // Get current date and time
     const currentTime = new Date();
@@ -55,10 +65,21 @@
         const s = Math.floor((diff / 1000) % 60);
 
         // Update elements if they exist
-        if (days) days.innerHTML = d;
-        if (hours) hours.innerHTML = h < 10 ? '0' + h : h;
-        if (minutes) minutes.innerHTML = m < 10 ? '0' + m : m;
-        if (seconds) seconds.innerHTML = s < 10 ? '0' + s : s;
+        const hh = h < 10 ? '0' + h : h;
+const mm = m < 10 ? '0' + m : m;
+const ss = s < 10 ? '0' + s : s;
+
+// Desktop
+if (days) days.innerHTML = d;
+if (hours) hours.innerHTML = hh;
+if (minutes) minutes.innerHTML = mm;
+if (seconds) seconds.innerHTML = ss;
+
+// Mobile
+if (daysM) daysM.innerHTML = d;
+if (hoursM) hoursM.innerHTML = hh;
+if (minutesM) minutesM.innerHTML = mm;
+if (secondsM) secondsM.innerHTML = ss;
     }
 
     // Call updateCountdown initially and set it to run every second
