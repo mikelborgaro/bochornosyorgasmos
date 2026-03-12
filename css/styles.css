@@ -2724,3 +2724,118 @@ body {
 .partners{
   padding-top: 10px !important;
 }
+
+/* ===== Centrar logo en mobile ===== */
+
+@media (max-width: 991px){
+
+  .navbar{
+    justify-content: center !important;
+  }
+
+  .navbar-brand{
+    margin: 0 auto !important;
+  }
+
+}
+
+/* ===== Logo centrado limpio ===== */
+
+.logo-img{
+  height: 80px;
+  width: auto;
+}
+
+@media (max-width: 991px){
+  .logo-img{
+    height: 60px;
+  }
+}
+
+/* ===== Header: logo centrado en mobile (logo + boton) ===== */
+@media (max-width: 991px){
+  .header_menu .navbar .container{
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;   /* menos espacio */
+  }
+
+  .header_menu .navbar-brand{
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .header_menu .menu-search{
+    margin-top: 6px;
+  }
+}
+
+/* Tamaño del logo (control limpio) */
+.logo-img{
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 991px){
+  .logo-img{
+    height: 60px;
+  }
+}
+
+/* ===== Ocultar botón solo en mobile ===== */
+@media (max-width: 991px){
+  .menu-search{
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px){
+  .header_menu .navbar .container{
+    justify-content: center !important;
+  }
+}
+
+/* ===== Fix logo cortado en header ===== */
+
+/* Asegura que el header no corte contenido */
+.header_menu,
+.header_menu .navbar,
+.header_menu .navbar .container{
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Centrado vertical real del logo */
+.header_menu .navbar{
+  display: flex;
+  align-items: center;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+/* Evita que el line-height “corte” el logo */
+.header_menu .navbar-brand{
+  display: flex !important;
+  align-items: center !important;
+  line-height: 0 !important;
+}
+
+/* Logo sin deformar y sin ser recortado */
+.logo-img,
+.header_menu .navbar-brand img{
+  display: block !important;
+  width: auto !important;
+  max-height: 72px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 991px){
+  .logo-img,
+  .header_menu .navbar-brand img{
+    max-height: 56px !important;
+  }
+}
